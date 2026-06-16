@@ -127,7 +127,7 @@ Analyze the captured packet traces using Wireshark or open them via command-line
 
 ## Replicating the Research
 
-To configure your local environment, install Structured Text automation modules, execute scripts, and independently confirm these results, reference the step-by-step documentation located in [notes/13-lab-reproduction-guide.md](https://www.google.com/search?q=notes/13-lab-reproduction-guide.md).
+To configure your local environment, install Structured Text automation modules, execute scripts, and independently confirm these results, reference the step-by-step documentation located in [notes/13-lab-reproduction-guide.md](https://github.com/404saint/industrial-protocol-labs/blob/main/modbus-research/notes/13-lab-reproduction-guide.md).
 
 ---
 
