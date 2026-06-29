@@ -35,8 +35,8 @@ This matrix tracks active research progress, transport layer specs, and complete
 | Directory | Protocol Name | OSI Layer | Transport | Research Focus | Status |
 | --- | --- | --- | --- | --- | --- |
 | [`/01-modbus-tcp`](https://github.com/404saint/industrial-protocol-labs/tree/main/modbus-research) | **Modbus TCP** | Application | TCP/502 | Register Polling & Volatile Bit-Flipping | 🟢 **Complete** |
-| `/02-ethernet-ip` | **EtherNet/IP (CIP)** | Application | TCP/44818 | Object Attributes & Session Handshakes | 🟡 *In Progress* |
-| `/03-dnp3` | **DNP3** | App/Link | TCP/20000 | Distributed Class Polling & COS Events | 🔴 *Backlog* |
+| [`/02-ethernet-ip`](https://github.com/404saint/industrial-protocol-labs/tree/main/ethernet-ip%20research) | **EtherNet/IP (CIP)** | Application | TCP/44818 | Object Attributes & Session Handshakes | 🟢 **Complete** |
+| `/03-dnp3` | **DNP3** | App/Link | TCP/20000 | Distributed Class Polling & COS Events |🟡 *In Progress* |
 | `/04-bacnet-ip` | **BACnet/IP** | Application | UDP/47808 | Building Automation Property Discovery | 🔴 *Backlog* |
 
 ---
