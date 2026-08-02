@@ -1,8 +1,3 @@
----
-title: README
-
----
-
 # DNP3 (IEEE 1815) Protocol Research Laboratory
 
 > A protocol-first, implementation-driven study of DNP3 architecture, state machines, transport behavior, control execution, and Secure Authentication.
