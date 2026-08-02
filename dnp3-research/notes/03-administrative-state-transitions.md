@@ -1,4 +1,4 @@
-DNP3 Behavioral Research Lab# 03: Administrative State Transitions
+# 03: Administrative State Transitions
 
 ## Executive Summary
 
