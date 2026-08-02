@@ -1,10 +1,4 @@
----
-title: 03-administrative-state-transitions
-tags: [Research Notes]
-
----
-
-# 03: Administrative State Transitions
+DNP3 Behavioral Research Lab# 03: Administrative State Transitions
 
 ## Executive Summary
 
