@@ -32,11 +32,15 @@ Rather than implementing the complete seven-layer OSI model, DNP3 follows a simp
 
 Each layer has a distinct responsibility. The Application Layer defines protocol operations and data representation, the Pseudo-Transport Layer manages fragmentation, the Data Link Layer provides reliable frame delivery, and the Physical Layer carries the encoded frames across serial or Ethernet-based communication media.
 
-> **Diagram Placeholder**
->
-> **Type:** Layering & Encapsulation Block Diagram
->
-> **Content:** Illustrate an Application Layer fragment being segmented by the Pseudo-Transport Layer, encapsulated inside FT3 Data Link frames, and transmitted over either serial or TCP/IP media.
+The following diagram illustrates how an Application Layer fragment is segmented by the DNP3 Pseudo-Transport layer, encapsulated into FT3 Data Link frames, and transmitted over either serial or TCP/IP media.
+
+<p align="center">
+  <img src="../screenshots/d1-layering-and-encapsulation-block-diagram.png"
+       alt="DNP3 Layering and Encapsulation"
+       width="900">
+</p>
+
+*Figure 1. DNP3 protocol layering and encapsulation process.*
 
 ---
 
@@ -154,11 +158,17 @@ An **Object Group** defines the logical type of data being exchanged, while a **
 
 This object model enables devices from different vendors to exchange semantically equivalent information while supporting multiple encoding formats for the same logical data.
 
-> **Diagram Placeholder**
->
-> **Type:** Byte Breakdown / Payload Parsing Diagram
->
-> **Content:** Display an Application Header followed by an Object Header, Group/Variation identifiers, Qualifier, Range fields, and the resulting payload bytes.
+### Application Payload Structure
+
+Every DNP3 Application Protocol Data Unit (APDU) begins with an Application Header that identifies the transaction context and requested operation. This is followed by one or more Object Headers, which describe the Object Group, Variation, qualifier, and addressing information required to interpret the payload. The remaining bytes contain the object data itself.
+
+<p align="center">
+  <img src="../screenshots/d2-payload-parsing-diagram.png"
+       alt="DNP3 Application Layer payload structure"
+       width="950">
+</p>
+
+<p align="center"><em>Figure 2. Structure of a DNP3 Application Layer payload. The Application Header precedes one or more Object Headers that define the Group, Variation, Qualifier, and Range fields before the associated object data.</em></p>
 
 ---
 
