@@ -1,9 +1,3 @@
----
-title: 05-secure-authentication-mechanisms.md
-tags: [Research Notes]
-
----
-
 # 05: Secure Authentication Mechanisms
 
 ## Executive Summary
