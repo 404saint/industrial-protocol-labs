@@ -1,70 +1,163 @@
 # Industrial Protocol Labs
 
-![License: Apche 2.0](https://img.shields.io/badge/License-Apache-blue.svg?style=flat-square)
-![Category: ICS/OT Security](https://img.shields.io/badge/Category-ICS%2FOT%20Security-red.svg?style=flat-square)
-![Language: Python 3](https://img.shields.io/badge/Language-Python%203-yellow.svg?style=flat-square)
-![Environment: OpenPLC](https://img.shields.io/badge/Environment-OpenPLC-orange.svg?style=flat-square)
+![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)
+![Research](https://img.shields.io/badge/Focus-Industrial%20Protocols-red.svg?style=flat-square)
+![Language](https://img.shields.io/badge/Language-Python%203-yellow.svg?style=flat-square)
+![Category](https://img.shields.io/badge/Domain-ICS%20%2F%20OT%20Security-orange.svg?style=flat-square)
 
-A specialized, low-level security research portfolio dedicated to the dissection, reverse-engineering, and defensive analysis of Operational Technology (OT) and Industrial Control System (ICS) communication protocols.
+A collection of implementation-driven research projects exploring industrial communication protocols used throughout Operational Technology (OT) and Industrial Control Systems (ICS).
 
-Rather than relying on high-level third-party libraries or abstract scanners, this repository focuses on building custom, bare-metal toolsets from the raw socket layer up. The goal is to evaluate exactly how industrial control daemons interpret binary data packets, enforce memory boundaries, validate inputs, and respond to protocol manipulation.
+Rather than treating protocols as opaque APIs, this series studies how they operate internally by implementing parsers, state machines, packet construction, and protocol workflows from first principles. Each repository combines protocol engineering with practical security analysis to better understand how industrial devices process, validate, and exchange data.
 
-## Core Research Methodology
+---
 
-Every protocol added to this series is systematically subjected to a 5-phase evaluation lifecycle to maintain research consistency and deep analytical rigor:
+# Research Philosophy
+
+Every protocol in this series follows the same guiding principle:
+
+> **Understand the protocol before attempting to secure or attack it.**
+
+Instead of beginning with exploits or fuzzing, each project starts with protocol architecture and progressively builds toward implementation, experimentation, and defensive analysis.
+
+The typical workflow is:
 
 ```text
-  [01: DISSECTION]      --> Reverse-engineer the specification, map headers, and craft raw binary frames.
-         │
-  [02: CAPABILITY]      --> Enumerate function codes, commands, or objects to map exposed footprints.
-         │
-  [03: MANIPULATION]    --> Test variable read/write boundaries, state overrides, and memory persistence.
-         │
-  [04: RESILIENCE]      --> Inject structural anomalies, clip payload lengths, and analyze exception behavior.
-         │
-  [05: DEFENSIVE]       --> Export malicious/normal PCAPs, engineer IDS rules, and document hardening steps.
-
+Study Specification
+        │
+        ▼
+Implement Protocol
+        │
+        ▼
+Validate Behavior
+        │
+        ▼
+Analyze State Machines
+        │
+        ▼
+Evaluate Security Properties
+        │
+        ▼
+Document Defensive Guidance
 ```
 
----
-
-## Master Protocol Matrix
-
-This matrix tracks active research progress, transport layer specs, and completed engineering deliverables across the industrial protocol spectrum.
-
-| Directory | Protocol Name | OSI Layer | Transport | Research Focus | Status |
-| --- | --- | --- | --- | --- | --- |
-| [`/01-modbus-tcp`](https://github.com/404saint/industrial-protocol-labs/tree/main/modbus-research) | **Modbus TCP** | Application | TCP/502 | Register Polling & Volatile Bit-Flipping | 🟢 **Complete** |
-| [`/02-ethernet-ip`](https://github.com/404saint/industrial-protocol-labs/tree/main/ethernet-ip%20research) | **EtherNet/IP (CIP)** | Application | TCP/44818 | Object Attributes & Session Handshakes | 🟢 **Complete** |
-| `/03-dnp3` | **DNP3** | App/Link | TCP/20000 | Distributed Class Polling & COS Events |🟡 *In Progress* |
-| `/04-bacnet-ip` | **BACnet/IP** | Application | UDP/47808 | Building Automation Property Discovery | 🔴 *Backlog* |
+This methodology produces repositories that are both educational and reproducible while remaining grounded in the protocol specifications.
 
 ---
 
-## Unified Test Environment Blueprint
+# Research Series
 
-All experiments are executed within a sandboxed, hardware-in-the-loop or containerized simulation lab. This guarantees safe exploration of catastrophic process state manipulation without risking real-world physical damage or hardware exhaustion.
+| Repository                                                                                                      | Protocol              | Layer                   | Default Transport  | Primary Research Focus                                       | Status         |
+| --------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------------- | ------------------ | ------------------------------------------------------------ | -------------- |
+| [`modbus-research`](https://github.com/404saint/industrial-protocol-labs/tree/main/modbus-research)             | **Modbus TCP**        | Application             | TCP/502            | Register model, function codes, protocol behavior            | 🟢 Complete    |
+| [`ethernet-ip research`](https://github.com/404saint/industrial-protocol-labs/tree/main/ethernet-ip%20research) | **EtherNet/IP (CIP)** | Application             | TCP/44818          | Encapsulation protocol, CIP object model, session management | 🟢 Complete    |
+| [`dnp3-research`](https://github.com/404saint/industrial-protocol-labs/tree/main/dnp3-research)                 | **DNP3 (IEEE 1815)**  | Application / Data Link | TCP/20000*         | Layered architecture, state machines, Secure Authentication  | 🟢 Complete    |
+| `bacnet-research`                                                                                               | **BACnet/IP**         | Application             | UDP/47808          | Object discovery, services, property access                  | 🟡 In Progress |
+| `opcua-research`                                                                                                | **OPC UA**            | Application             | TCP/4840           | Secure channels, sessions, information models                | ⚪ Planned      |
+| `iec60870-5-104-research`                                                                                       | **IEC 60870-5-104**   | Application             | TCP/2404           | Telecontrol architecture and ASDUs                           | ⚪ Planned      |
+| `iec61850-research`                                                                                             | **IEC 61850**         | Application             | TCP/102 / Ethernet | MMS, GOOSE, Sampled Values                                   | ⚪ Planned      |
+| `profinet-research`                                                                                             | **PROFINET**          | Application             | Ethernet           | Industrial Ethernet and device discovery                     | ⚪ Planned      |
+| `s7comm-research`                                                                                               | **Siemens S7comm**    | Application             | TCP/102            | PLC communication and engineering workflows                  | ⚪ Planned      |
 
-* **Target Runtimes:** OpenPLC Engine, specialized protocol daemons, and synthetic industrial simulators.
-* **Analysis Toolkit:** Python 3.x (Standard `socket` and `struct` libraries), `tcpdump`, and Wireshark.
-
----
-
-## Skills & Capabilities Demonstrated
-
-* **OT/ICS Security Engineering:** Practical understanding of industrial automation data models, register spacing, and PLC runtime execution patterns.
-* **Protocol Reverse Engineering:** Hand-crafting binary request payloads, tracking transaction boundaries, and raw socket programming.
-* **Vulnerability Assessment:** Target profiling, fuzzing fixed parameters, and testing input validation limits.
-* **Detection Engineering:** Developing high-fidelity network-level signatures and tracking exception ratios to stop malicious reconnaissance.
-
----
-
-## License
-
-This repository is open-sourced under the Apache License 2.0. You are free to use, modify, and distribute the custom scripts and methodologies. These permissions apply to educational, defensive, and authorized security assessment purposes. See the local LICENSE file for full liability disclaimer text.
+> **Note:** Some protocols support multiple transport media. Where applicable, the transport shown above reflects the laboratory implementation used for the accompanying research.
 
 ---
 
-## Disclaimer
+# Repository Structure
 
-All research, scripts, and packet captures published in this repository are developed strictly within an isolated, authorized laboratory environment for educational and defensive security engineering purposes. Do not target production industrial controls, utility networks, or live automated environments without formal authorization and explicit safety constraints.
+Each protocol repository follows a consistent layout.
+
+```text
+protocol-research/
+├── notes/          # Technical documentation and research papers
+├── scripts/        # Python implementations
+├── pcaps/          # Packet captures
+├── screenshots/    # Experimental output
+└── README.md
+```
+
+This structure allows every project to be reproduced independently while maintaining a consistent organization across the research series.
+
+---
+
+# Research Methodology
+
+Although each protocol differs architecturally, every repository generally progresses through the following stages:
+
+* Protocol architecture and frame analysis
+* Enumeration and capability discovery
+* State machine exploration
+* Control and administrative operations
+* Boundary and transport validation
+* Security mechanism evaluation
+* Defensive recommendations
+
+Some protocols include additional protocol-specific phases. For example, Secure Authentication in DNP3 or object model analysis in EtherNet/IP.
+
+---
+
+# Laboratory Environment
+
+All experiments are performed inside isolated laboratory environments using simulated devices, software implementations, or containerized services.
+
+Typical tooling includes:
+
+* Python 3
+* Raw TCP/UDP sockets
+* Wireshark
+* tcpdump
+* Scapy
+* OpenPLC
+* Protocol-specific simulators
+
+No production industrial infrastructure is used during the research.
+
+---
+
+# Research Objectives
+
+The purpose of this series is to develop a deeper understanding of industrial communication protocols through implementation and experimentation.
+
+Topics explored throughout the repositories include:
+
+* Protocol implementation
+* Binary protocol parsing
+* Object and register models
+* Session management
+* State machine behavior
+* Transport mechanisms
+* Secure authentication
+* Detection engineering
+* Defensive protocol analysis
+
+---
+
+# Intended Audience
+
+These repositories are intended for:
+
+* ICS/OT security researchers
+* Detection engineers
+* Protocol reverse engineers
+* Malware analysts
+* Network defenders
+* Students studying industrial communication protocols
+
+A working knowledge of networking and Python is helpful but not required to follow the research.
+
+---
+
+# License
+
+This project is licensed under the Apache License 2.0.
+
+See the accompanying `LICENSE` file for the complete license text.
+
+---
+
+# Disclaimer
+
+All research published in this repository was conducted in isolated laboratory environments using simulated devices or systems under the author's control.
+
+The code and documentation are provided exclusively for educational, research, and defensive security purposes. They should not be used against production industrial systems or any infrastructure without explicit authorization.
+
+Industrial Control Systems frequently interact with physical processes. Always perform protocol research responsibly and within appropriately isolated laboratory environments.
