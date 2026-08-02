@@ -1,9 +1,3 @@
----
-title: 01-recon-and-enumeration
-tags: [Research Notes]
-
----
-
 # 01: Reconnaissance & Asset Enumeration
 
 ## 1. Introduction
