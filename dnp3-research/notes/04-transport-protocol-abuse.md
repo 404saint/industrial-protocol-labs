@@ -1,9 +1,3 @@
----
-title: 04-transport-protocol-abuse
-tags: [Research Notes]
-
----
-
 # 04: Transport Reassembly & Unsolicited Messaging
 
 ## Executive Summary
