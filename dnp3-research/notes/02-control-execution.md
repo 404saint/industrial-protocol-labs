@@ -1,9 +1,3 @@
----
-title: 02-control-execution
-tags: [Research Notes]
-
----
-
 # 02: Control Execution
 
 ## Executive Summary
