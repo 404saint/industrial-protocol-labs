@@ -1,9 +1,3 @@
----
-title: 00-architecture-primer
-tags: [Research Notes]
-
----
-
 # 00: DNP3 Architectural Foundation
 
 ## 1. Introduction
