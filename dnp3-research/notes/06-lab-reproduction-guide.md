@@ -1,9 +1,3 @@
----
-title: 06-lab-reproduction-guide
-tags: [Research Notes]
-
----
-
 # 06: Laboratory Reproduction Guide
 
 ## Overview
