@@ -1,4 +1,4 @@
-# BACnet/IP Research Series
+# BACnet/IP Protocol Research Laboratory
 
 > A practical research series exploring BACnet/IP protocol internals through manual packet construction, protocol analysis, and controlled laboratory experimentation.
 
