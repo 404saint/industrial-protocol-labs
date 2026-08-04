@@ -30,11 +30,14 @@ Individual properties are referenced using standardized numeric identifiers. For
 
 This standardized property model allows BACnet clients from different vendors to query and manipulate compatible devices without relying on vendor-specific memory layouts.
 
+<p align="center">
+  <img src="../screenshots/bacnet-object-hierarchy-tree.png"
+       alt="DNP3 Layering and Encapsulation"
+       width="900">
+</p>
 
+*Figure 1. Simplified representation of a BACnet Device object exposing multiple standardized object instances.  In practice, a single device may contain hundreds or thousands of objects, each uniquely identified by an (Object Type, Instance Number) pair and accessed through standardized BACnet application services.*
 
-*`[DIAGRAM PLACEHOLDER: BACnet Object Hierarchy Tree]`*
-
-> Figure 1. Simplified representation of a BACnet Device object exposing multiple standardized object instances. In practice, a single device may contain hundreds or thousands of objects, each uniquely identified by an (Object Type, Instance Number) pair and accessed through standardized BACnet application services.
 
 ### 1.2 Core Object Types
 
@@ -62,9 +65,16 @@ Unlike Modbus TCP or EtherNet/IP, BACnet introduces additional network-layer pro
 
 
 
-*`[DIAGRAM PLACEHOLDER: BACnet/IP Packet Frame Breakdown]`*
+<p align="center">
+  <img src="../screenshots/bacnet-udp-payload-flow-diagram.png"
+       alt="DNP3 Layering and Encapsulation"
+       height="600"
+       width="150">
+</p>
 
-> Figure 2. BACnet/IP encapsulation hierarchy. Application services are transported within an APDU, encapsulated by the BACnet Network Protocol Data Unit (NPDU) and BACnet Virtual Link Control (BVLC) headers before transmission over UDP port 47808 (0xBAC0). Optional NPDU routing fields are present only when packets traverse BACnet internetworks.
+*Figure 2. BACnet/IP encapsulation hierarchy. Application services are transported within an APDU, encapsulated by the BACnet Network Protocol Data Unit (NPDU) and BACnet Virtual Link Control (BVLC) headers before transmission over UDP port 47808 (0xBAC0). Optional NPDU routing fields are present only when packets traverse BACnet internetworks.*
+
+
 
 ### 2.1 BACnet Virtual Link Control (BVLC)
 
@@ -125,9 +135,15 @@ Every commandable object maintains sixteen independent priority slots. Instead o
 
 This design allows multiple independent systems, including schedules, operator workstations, supervisory controllers, and life-safety applications to issue commands without permanently overwriting one another.
 
- `[DIAGRAM PLACEHOLDER: BACnet Priority Array Evaluation Process]`
+<p align="center">
+  <img src="../screenshots/priority-arbitration-diagram.png"
+       alt="DNP3 Layering and Encapsulation"
+       width="600">
+</p>
 
-> Figure 3. Flow diagram illustrating BACnet's 16-slot Priority Array evaluation process. Multiple write requests populate independent priority slots within a commandable object. During evaluation, the controller scans the array sequentially from Priority 1 (highest precedence) to Priority 16 (lowest precedence), selecting the first non-NULL value as the object's effective Present_Value. If every priority slot contains NULL, the controller assigns the value stored in the Relinquish_Default property.
+*Figure 3. Flow diagram illustrating BACnet's 16-slot Priority Array evaluation process. Multiple write requests populate independent priority slots within a commandable object. During evaluation, the controller scans the array sequentially from Priority 1 (highest precedence) to Priority 16 (lowest precedence), selecting the first non-NULL value as the object's effective Present_Value. If every priority slot contains NULL, the controller assigns the value stored in the Relinquish_Default property.*
+
+
 
 ### 3.1 Priority Evaluation Rules
 
