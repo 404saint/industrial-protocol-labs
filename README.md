@@ -13,14 +13,6 @@ Rather than treating protocols as opaque APIs, this series studies how they oper
 
 # Research Philosophy
 
-Every protocol in this series follows the same guiding principle:
-
-> **Understand the protocol before attempting to secure or attack it.**
-
-Instead of beginning with exploits or fuzzing, each project starts with protocol architecture and progressively builds toward implementation, experimentation, and defensive analysis.
-
-The typical workflow is:
-
 ```text
 Study Specification
         │
