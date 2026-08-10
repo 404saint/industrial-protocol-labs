@@ -40,8 +40,6 @@ Evaluate Security Properties
 Document Defensive Guidance
 ```
 
-This methodology produces repositories that are both educational and reproducible while remaining grounded in the protocol specifications.
-
 ---
 
 # Research Series
