@@ -1,4 +1,4 @@
-# Industrial Protocol Labs
+# Industrial Protocols Research Labs
 
 ![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)
 ![Research](https://img.shields.io/badge/Focus-Industrial%20Protocols-red.svg?style=flat-square)
