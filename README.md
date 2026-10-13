@@ -1,9 +1,9 @@
 # Industrial Protocols Research Labs
 
-![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)
-![Research](https://img.shields.io/badge/Focus-Industrial%20Protocols-red.svg?style=flat-square)
-![Language](https://img.shields.io/badge/Language-Python%203-yellow.svg?style=flat-square)
-![Category](https://img.shields.io/badge/Domain-ICS%20%2F%20OT%20Security-orange.svg?style=flat-square)
+![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-1b5e20.svg?style=flat-square&labelColor=000000)
+![Research](https://img.shields.io/badge/Focus-Industrial%20Protocols-1b5e20.svg?style=flat-square&labelColor=000000)
+![Language](https://img.shields.io/badge/Language-Python%203-1b5e20.svg?style=flat-square&labelColor=000000)
+![Category](https://img.shields.io/badge/Domain-ICS%20%2F%20OT%20Security-1b5e20.svg?style=flat-square&labelColor=000000)
 
 A collection of implementation-driven research projects exploring industrial communication protocols used throughout Operational Technology (OT) and Industrial Control Systems (ICS).
 
