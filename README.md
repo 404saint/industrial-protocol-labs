@@ -11,29 +11,6 @@ Rather than treating protocols as opaque APIs, this series studies how they oper
 
 ---
 
-# Research Philosophy
-
-```text
-Study Specification
-        │
-        ▼
-Implement Protocol
-        │
-        ▼
-Validate Behavior
-        │
-        ▼
-Analyze State Machines
-        │
-        ▼
-Evaluate Security Properties
-        │
-        ▼
-Document Defensive Guidance
-```
-
----
-
 # Research Series
 
 | Repository                                                                                                      | Protocol              | Layer                   | Default Transport  | Primary Research Focus                                       | Status         |
